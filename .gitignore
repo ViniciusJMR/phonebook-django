@@ -136,6 +136,9 @@ GitHub.sublime-settings
 static/
 media/
 
+# Local
+project/local_settings.py
+
 # Visual Studio Code #
 .vscode/*
 !.vscode/settings.json
