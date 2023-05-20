@@ -13,3 +13,8 @@ class ContactAdmin(admin.ModelAdmin):
     list_max_show_all = 1000
     list_editable = ('first_name', 'last_name',)
     list_display_links = 'id', 'phone', #Tupla sem parenteses
+
+@admin.register(models.Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name',) 
+    ordering = ('id',)
