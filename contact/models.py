@@ -6,5 +6,5 @@ class Contact(models.Model):
     last_name = models.CharField(max_length=50, blank=True)
     phone = models.CharField(max_length=50)
     email = models.CharField(max_length=254, blank=True)
-    created_date = models.DateTimeField(timezone.now)
+    created_date = models.DateTimeField(default=timezone.now)
     description = models.TextField(blank=True)
