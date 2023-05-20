@@ -1,4 +1,4 @@
-{% load static %}<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
     <head>
         {% include 'global/partial/_head.html'%}
@@ -8,6 +8,8 @@
 
         <main class="content">
             {% block content %}{% endblock content %}
+            {% include 'global/partial/_pagination.html' %}
         </main>
     </body>
+
 </html>
