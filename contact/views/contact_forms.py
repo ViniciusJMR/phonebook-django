@@ -1,12 +1,6 @@
 from django.shortcuts import render
-from django import forms
+from contact.forms import ContactForm
 
-from contact.models import Contact
-
-class ContactForm(forms.ModelForm):
-    class Meta:
-        model = Contact
-        fields = ('first_name','last_name','phone',)
 
 appname = 'create'
 
