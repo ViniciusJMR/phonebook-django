@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from . import models
 
@@ -26,6 +27,7 @@ class ContactForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
     #     Second
     #     self.fields['first_name'].widget.attrs.update({
     #         'class': 'class-a',
@@ -73,3 +75,7 @@ class ContactForm(forms.ModelForm):
         #         }
         #     )
         # }
+
+
+class RegisterForm(UserCreationForm):
+    ...
