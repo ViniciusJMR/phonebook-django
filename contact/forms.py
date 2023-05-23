@@ -1,10 +1,17 @@
-from typing import Any, Dict
 from django import forms
 from django.core.exceptions import ValidationError
 from . import models
 
-#Three ways to config fields
+
+# Three ways to config fields
 class ContactForm(forms.ModelForm):
+    picture = forms.ImageField(
+        widget=forms.FileInput(
+            attrs={
+                'accept': 'image/*',
+            }
+        )
+    )
     # First
     first_name = forms.CharField(
         widget=forms.TextInput(
@@ -17,20 +24,19 @@ class ContactForm(forms.ModelForm):
         help_text='Text de ajuda para seu usuário',
     )
 
-    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-    # Second
+    #     Second
     #     self.fields['first_name'].widget.attrs.update({
     #         'class': 'class-a',
     #         'placeholder': 'Escreva Aqui',
     #     })
 
-    def clean(self): 
+    def clean(self):
         cleaned_data = self.cleaned_data
         first_name = cleaned_data.get('first_name')
         last_name = cleaned_data.get('last_name')
-        
+
         if first_name == last_name:
             msg = ValidationError(
                 'Primeiro nome não pode ser igual ao segundo',
@@ -51,13 +57,13 @@ class ContactForm(forms.ModelForm):
                     code='invalid',
                 )
             )
-        return first_name 
-
+        return first_name
 
     class Meta:
-        model = models.Contact 
-        fields = ('first_name','last_name','phone',
-                  'email', 'description', 'category',)
+        model = models.Contact
+        fields = ('first_name', 'last_name', 'phone',
+                  'email', 'description', 'category',
+                  'picture',)
         # Third
         # widgets = {
         #     'first_name': forms.TextInput(
@@ -67,5 +73,3 @@ class ContactForm(forms.ModelForm):
         #         }
         #     )
         # }
-        
-    
