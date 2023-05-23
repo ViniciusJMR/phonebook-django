@@ -17,10 +17,10 @@ class ContactForm(forms.ModelForm):
         help_text='Text de ajuda para seu usuário',
     )
 
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
     # Second
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-
     #     self.fields['first_name'].widget.attrs.update({
     #         'class': 'class-a',
     #         'placeholder': 'Escreva Aqui',
