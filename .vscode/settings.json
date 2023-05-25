@@ -15,6 +15,10 @@
         "source.organizeImports": true
       }
     },
+    "python.analysis.extraPaths": [".venv/lib/python3.11/site-packages"],
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.autoImportCompletions": true,
+    "python.autoComplete.extraPaths": [ ".venv/lib/python3.11/site-packages", ],
     "python.defaultInterpreterPath": ".venv/bin/python",
     "python.languageServer": "Pylance",
   }
