@@ -17,7 +17,7 @@ git clone https://github.com/ViniciusJMR/phonebook-django.git
 python -m venv venv
 . venv/bin/activate 
 
-pip install django Pillow
+pip install -r requirements.txt 
 
 # Migrating Databases
 python manage.py makemigrations
