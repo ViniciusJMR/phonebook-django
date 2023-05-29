@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
@@ -24,6 +25,7 @@ def create(request):
         contact = contact_form.save(commit=False)
         contact.owner = request.user
         contact.save()
+        messages.success(request, 'Created Contact!')
         return redirect('contact:update', contact_id=contact.pk)
 
     return render(
@@ -55,11 +57,12 @@ def update(request, contact_id):
         contact = contact_form.save(commit=False)
         # Tratar contato
         contact.save()
+        messages.success(request, 'Updated Contact!')
         return redirect('contact:update', contact_id=contact.pk)
 
     return render(
         request,
-        'contact/create.html',
+        'contact/update.html',
         context,
     )
 
@@ -74,6 +77,7 @@ def delete(request, contact_id):
 
     if confirmation == 'yes':
         contact.delete()
+        messages.success(request, 'Deleted Contact!')
         return redirect('contact:index')
     # contact.delete()
 

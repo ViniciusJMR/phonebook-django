@@ -14,7 +14,7 @@ def register(request):
 
         if form.is_valid():
             form.save()
-            messages.success(request, 'Usuário registrado')
+            messages.success(request, 'Registered user!')
             return redirect('contact:login')
 
     return render(
@@ -51,6 +51,7 @@ def user_update(request):
         )
 
     form.save()
+    messages.success(request, 'Updated user!')
     return redirect('contact:user_update')
 
 
@@ -63,10 +64,10 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
-            messages.success(request, 'Logado com sucesso!')
+            messages.success(request, 'Success in logging!')
             return redirect('contact:index')
 
-        messages.error(request, 'Login inválido')
+        messages.error(request, 'Invalid Login!')
 
     return render(
         request,
