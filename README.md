@@ -13,19 +13,15 @@ after logging in and only Update or Delete your own contacts.
 ```shell
 git clone https://github.com/ViniciusJMR/phonebook-django.git
 
-# Install dependencies 
-python -m venv venv
-. venv/bin/activate 
+python -m venv venv # Install dependencies 
+. venv/bin/activate # Install dependencies
+pip install -r requirements.txt # Install dependencies
 
-pip install -r requirements.txt 
 
-# Migrating Databases
-python manage.py makemigrations
-python manage.py migrate
+python manage.py makemigrations # Migrating Databases
+python manage.py migrate # Migrating Databases
 
-# Add fake contacts to database
-pip install faker
-python utils/create_contacts.py
+python utils/create_contacts.py # Add fake contacts to database
 
 python manage.py runserver
 ```
